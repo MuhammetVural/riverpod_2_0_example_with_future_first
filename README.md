@@ -1,1 +1,3 @@
-# riverpod_2_0_example_with_future_first
+# riverpod_2_example
+
+A new Flutter project.
