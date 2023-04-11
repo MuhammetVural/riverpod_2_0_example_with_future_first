@@ -7,7 +7,7 @@ abstract class HomeRepository {
   Future<List<CategoryModel>> getCategories();
 }
 
-@Singleton(as: HomeRepository)
+@LazySingleton(as: HomeRepository)
 class HomeRepositoryImp implements HomeRepository {
   final NetworkManager _networkManager;
 
