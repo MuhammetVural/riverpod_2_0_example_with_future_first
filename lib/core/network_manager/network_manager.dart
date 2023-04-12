@@ -8,7 +8,7 @@ abstract class INetworkManager {
   });
 }
 
-@Singleton(as: INetworkManager)
+@Singleton(as: INetworkManager, order: -1)
 class NetworkManager implements INetworkManager {
   late Dio dio;
 

@@ -12,9 +12,9 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:riverpod_2_example/core/network_manager/network_manager.dart'
-    as _i4;
-import 'package:riverpod_2_example/features/home/data/repositories/home_repository.dart'
     as _i3;
+import 'package:riverpod_2_example/features/home/data/repositories/home_repository.dart'
+    as _i4;
 
 extension GetItInjectableX on _i1.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -27,9 +27,9 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    gh.lazySingleton<_i3.HomeRepository>(
-        () => _i3.HomeRepositoryImp(networkManager: gh<_i4.NetworkManager>()));
-    gh.singleton<_i4.INetworkManager>(_i4.NetworkManager());
+    gh.singleton<_i3.INetworkManager>(_i3.NetworkManager());
+    gh.lazySingleton<_i4.HomeRepository>(
+        () => _i4.HomeRepositoryImp(networkManager: gh<_i3.NetworkManager>()));
     return this;
   }
 }
