@@ -27,7 +27,7 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    gh.singleton<_i3.INetworkManager>(_i3.NetworkManager());
+    gh.singleton<_i3.NetworkManager>(_i3.NetworkManagerImp());
     gh.lazySingleton<_i4.HomeRepository>(
         () => _i4.HomeRepositoryImp(networkManager: gh<_i3.NetworkManager>()));
     return this;

@@ -1,21 +1,22 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-abstract class INetworkManager {
+abstract class NetworkManager {
   Future get({
     required String path,
     Map<String, dynamic>? queryParameters,
   });
 }
 
-@Singleton(as: INetworkManager, order: -1)
-class NetworkManager implements INetworkManager {
+@Singleton(as: NetworkManager)
+class NetworkManagerImp implements NetworkManager {
   late Dio dio;
 
-  NetworkManager() {
+  NetworkManagerImp() {
     dio =
         Dio(BaseOptions(baseUrl: "https://assign-api.piton.com.tr/api/rest/"));
   }
+
   @override
   Future<Response> get(
       {required String path, Map<String, dynamic>? queryParameters}) async {

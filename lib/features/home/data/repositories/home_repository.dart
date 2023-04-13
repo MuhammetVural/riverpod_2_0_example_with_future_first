@@ -17,10 +17,11 @@ class HomeRepositoryImp implements HomeRepository {
   Future<List<CategoryModel>> getCategories() async {
     try {
       Response response = await _networkManager.get(path: "categories");
-      return response.data["categories"]
+      return response.data["category"]
           .map<CategoryModel>((e) => CategoryModel.fromJson(e))
           .toList();
-    } on DioError {
+    } on DioError catch (e) {
+      print(e);
       return [];
     } catch (e) {
       return [];

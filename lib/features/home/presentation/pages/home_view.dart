@@ -5,7 +5,7 @@ import 'package:riverpod_2_example/features/home/presentation/riverpod/home_prov
 import 'package:riverpod_2_example/features/home/presentation/riverpod/home_state.dart';
 import 'package:riverpod_2_example/product/locator/locator.dart';
 
-final homeProvider = NotifierProvider<HomeProvider, HomeState>(
+final homeProvider = NotifierProvider.autoDispose<HomeProvider, HomeState>(
   () => HomeProvider(repository: getIt<HomeRepository>()),
 );
 
@@ -19,11 +19,19 @@ class HomeView extends ConsumerWidget {
     final state = ref.watch(homeProvider);
     final provider = ref.watch(homeProvider.notifier);
     return Scaffold(
-      body: ListView.builder(
-        itemCount: state.categories.length,
-        itemBuilder: (BuildContext context, int index) {
-          return;
-        },
+      body: Stack(
+        children: [
+          ListView.builder(
+            itemCount: state.categories.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Text(state.categories[index].name);
+            },
+          ),
+          if (state.isLoading)
+            const Center(
+              child: CircularProgressIndicator(),
+            )
+        ],
       ),
     );
   }

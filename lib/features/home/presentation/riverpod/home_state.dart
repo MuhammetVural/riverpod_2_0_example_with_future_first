@@ -13,6 +13,6 @@ class HomeState with _$HomeState {
   HomeState._();
 
   factory HomeState.initial() {
-    return HomeState(categories: [], isLoading: false);
+    return HomeState(categories: [], isLoading: true);
   }
 }
