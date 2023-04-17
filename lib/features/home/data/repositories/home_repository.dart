@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:riverpod_2_example/core/network_manager/network_manager.dart';
-import 'package:riverpod_2_example/features/home/data/models/category_model/category_model.dart';
+
+import '../models/categorymodel/category_model.dart';
+
 
 abstract class HomeRepository {
   Future<List<CategoryModel>> getCategories();

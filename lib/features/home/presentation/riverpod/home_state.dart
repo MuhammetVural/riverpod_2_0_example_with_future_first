@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:riverpod_2_example/features/home/data/models/category_model/category_model.dart';
+
+import '../../data/models/categorymodel/category_model.dart';
 
 part 'home_state.freezed.dart';
 
